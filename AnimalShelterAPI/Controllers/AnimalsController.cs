@@ -76,10 +76,6 @@ namespace AnimalShelterAPI.Controllers
 
       return NoContent();
     }
-    private bool AnimalExists(int id)
-    {
-      return _db.Animals.Any(e => e.AnimalId == id);
-    }
 
     // DELETE: api/Animals/5
     [HttpDelete("{id}")]
@@ -96,5 +92,11 @@ namespace AnimalShelterAPI.Controllers
 
       return NoContent();
     }
+
+    private bool AnimalExists(int id)
+    {
+      return _db.Animals.Any(e => e.AnimalId == id);
+    }
+
   }
 }
