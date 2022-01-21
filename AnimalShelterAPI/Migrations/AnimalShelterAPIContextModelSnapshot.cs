@@ -40,6 +40,62 @@ namespace AnimalShelterAPI.Migrations
                     b.HasKey("AnimalId");
 
                     b.ToTable("Animals");
+
+                    b.HasData(
+                        new
+                        {
+                            AnimalId = 1,
+                            Age = 13,
+                            Description = "sweet old granny",
+                            Gender = "Female",
+                            Name = "Doggy",
+                            Species = "Dog"
+                        },
+                        new
+                        {
+                            AnimalId = 2,
+                            Age = 8,
+                            Description = "people pleaser",
+                            Gender = "Male",
+                            Name = "Dax",
+                            Species = "Dog"
+                        },
+                        new
+                        {
+                            AnimalId = 3,
+                            Age = 4,
+                            Description = "big teddy bear",
+                            Gender = "Male",
+                            Name = "Bruce",
+                            Species = "Dog"
+                        },
+                        new
+                        {
+                            AnimalId = 4,
+                            Age = 6,
+                            Description = "explorer",
+                            Gender = "Female",
+                            Name = "Kiki",
+                            Species = "Cat"
+                        },
+                        new
+                        {
+                            AnimalId = 5,
+                            Age = 7,
+                            Description = "hates crowds",
+                            Gender = "Female",
+                            Name = "Pepper",
+                            Species = "Cat"
+                        },
+                        new
+                        {
+                            AnimalId = 6,
+                            Age = 6,
+                            Description = "super friendly",
+                            Gender = "Female",
+                            Name = "Ramona",
+                            Species = "Cat"
+                        });
                 });
 #pragma warning restore 612, 618
         }
