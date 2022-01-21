@@ -32,6 +32,7 @@ namespace AnimalShelterAPI.Controllers
       await _db.SaveChangesAsync();
 
       return CreatedAtAction(nameof(GetAnimal), new { id = animal.AnimalId }, animal);
+
     }
 
     [HttpGet("{id}")]
@@ -92,11 +93,9 @@ namespace AnimalShelterAPI.Controllers
 
       return NoContent();
     }
-
     private bool AnimalExists(int id)
     {
       return _db.Animals.Any(e => e.AnimalId == id);
     }
-
   }
 }
