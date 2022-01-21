@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AnimalShelterAPI.Models;
+using System.Linq;
 
 namespace AnimalShelterAPI.Controllers
 {
@@ -32,9 +33,9 @@ namespace AnimalShelterAPI.Controllers
       await _db.SaveChangesAsync();
 
       return CreatedAtAction(nameof(GetAnimal), new { id = animal.AnimalId }, animal);
-
     }
 
+    // GET: api/Animals/5
     [HttpGet("{id}")]
     public async Task<ActionResult<Animal>> GetAnimal(int id)
     {
@@ -77,6 +78,10 @@ namespace AnimalShelterAPI.Controllers
 
       return NoContent();
     }
+    private bool AnimalExists(int id)
+    {
+      return _db.Animals.Any(e => e.AnimalId == id);
+    }
 
     // DELETE: api/Animals/5
     [HttpDelete("{id}")]
@@ -92,10 +97,6 @@ namespace AnimalShelterAPI.Controllers
       await _db.SaveChangesAsync();
 
       return NoContent();
-    }
-    private bool AnimalExists(int id)
-    {
-      return _db.Animals.Any(e => e.AnimalId == id);
     }
   }
 }
