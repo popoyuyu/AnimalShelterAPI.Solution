@@ -21,7 +21,7 @@ namespace AnimalShelterAPI
     public void ConfigureServices(IServiceCollection services)
     {
 
-      services.AddDbContext<CretaceousParkContext>(opt =>
+      services.AddDbContext<AnimalShelterAPIContext>(opt =>
           opt.UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
       services.AddControllers();
     }
